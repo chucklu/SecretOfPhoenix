@@ -56,9 +56,13 @@ namespace SecretOfPhoenix
                 }
             }
 
-            foreach (var item in list)
+            foreach (var status in list)
             {
-                Console.WriteLine(item);
+                var valid = status.IsValid();
+                if (valid)
+                {
+                    Console.WriteLine(status);
+                }
             }
         }
     }
