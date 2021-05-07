@@ -26,12 +26,12 @@ namespace SecretOfPhoenix
 
         public bool IsValid()
         {
-            if (LeftQuilboarCount > LeftOrcCount)
+            if (LeftQuilboarCount > LeftOrcCount && LeftOrcCount > 0)
             {
                 return false;
             }
 
-            if (RightQuilboarCount > RightOrcCount)
+            if (RightQuilboarCount > RightOrcCount && RightOrcCount > 0)
             {
                 return false;
             }
