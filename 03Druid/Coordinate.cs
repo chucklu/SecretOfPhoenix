@@ -40,6 +40,14 @@ namespace _03Druid
         public Point RightTopCorner = new Point(1, 1);
         public Point LeftTopCorner = new Point(0, 1);
 
+        public int MinX { get; set; } = 0;
+
+        public int MaxX { get; set; } = 1;
+
+        public int MinY { get; set; } = 0;
+
+        public int MaxY { get; set; } = 1;
+
         public Coordinate()
         {
             PointList = new List<Point>()
@@ -57,6 +65,10 @@ namespace _03Druid
             foreach (var point in PointList)
             {
                 point.X = point.X -1;
+                if (point.X < MinX)
+                {
+                    MinX = point.X;
+                }
             }
         }
 
@@ -66,6 +78,10 @@ namespace _03Druid
             foreach (var point in PointList)
             {
                 point.Y = point.Y + 1;
+                if (point.Y > MaxY)
+                {
+                    MaxY = point.Y;
+                }
             }
         }
 
@@ -75,6 +91,10 @@ namespace _03Druid
             foreach (var point in PointList)
             {
                 point.X = point.X + 1;
+                if (point.X > MaxX)
+                {
+                    MaxX = point.X;
+                }
             }
         }
 

@@ -53,7 +53,7 @@ namespace _03Druid
                 coordinate.Move(moveType);
                 Console.WriteLine($"{count:D2}, {item}, {coordinate}");
             }
-
+            Console.WriteLine($"({coordinate.MinX},{coordinate.MinY}),({coordinate.MaxX},{coordinate.MaxY})");
         }
 
         static void RunEnglishSolution()
