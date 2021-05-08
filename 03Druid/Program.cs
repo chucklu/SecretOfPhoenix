@@ -47,7 +47,7 @@ namespace _03Druid
             {
                 count++;
                 var moveType = DruidSolution.ChineseDictionary[item];
-                board.Move(moveType);
+                board.Action(moveType);
                 //Console.WriteLine($"{count:D2}, {item}, {board}");
 
                 coordinate.Action(moveType);
@@ -73,7 +73,7 @@ namespace _03Druid
                     throw new ArgumentException($"{key} can not be recognized");
                 }
                 var moveType = DruidSolution.EnglishDictionary[item.ToString()];
-                board.Move(moveType);
+                board.Action(moveType);
                 Console.WriteLine($"{count:D2}, {item}, {board}");
             }
 

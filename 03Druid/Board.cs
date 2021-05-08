@@ -11,7 +11,7 @@ namespace _03Druid
 
         public int RightHealth { get; set; } = 999;
 
-        public void MoveLeft()
+        public void TurnLeft()
         {
             if (LeftHealth > 1)//should not deduct to zero
             {
@@ -23,28 +23,28 @@ namespace _03Druid
             }
         }
 
-        public void MoveMiddle()
+        public void Move()
         {
             MiddleHealth--;
         }
 
-        public void MoveRight()
+        public void TurnRight()
         {
             RightHealth--;
         }
 
-        public void Move(ActionType moveType)
+        public void Action(ActionType moveType)
         {
             switch (moveType)
             {
                 case ActionType.TurnLeft:
-                    MoveLeft();
+                    TurnLeft();
                     break;
                 case ActionType.Move:
-                    MoveMiddle();
+                    Move();
                     break;
                 case ActionType.TurnRight:
-                    MoveRight();
+                    TurnRight();
                     break;
                 default:
                     throw new ArgumentException($"{moveType} is not supported");
