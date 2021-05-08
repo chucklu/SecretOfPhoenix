@@ -7,25 +7,25 @@ namespace _03DruidWinform
 {
     public partial class Form1 : Form
     {
-        int multiple = 2;
+        int multiple = 8;
 
         /// <summary>
         /// 最外层的矩形的宽
         /// </summary>
-        int width = 20;//4*5
+        int width = 60;//4*15
 
         /// <summary>
         /// 最外层的矩形的高度
         /// </summary>
-        int height = 264;//4*66=264
+        int height = 72;//4*18=72
 
         /// <summary>
-        /// width/w 是垂直方向的格子数量 20/4=5  宽度被5等分
+        /// width/w 是垂直方向的格子数量 60/4=15  宽度被15等分
         /// </summary>
         int w = 4;
 
         /// <summary>
-        /// height/h 是水平方向的格子数量 264/4=66  高度被66等分
+        /// height/h 是水平方向的格子数量 72/4=18  高度被18等分
         /// </summary>
         int h = 4;
 
