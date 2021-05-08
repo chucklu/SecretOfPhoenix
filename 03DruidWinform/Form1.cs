@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using _03Druid;
 using Point = System.Drawing.Point;
@@ -60,21 +61,26 @@ namespace _03DruidWinform
 
         private void DrawPath(PaintEventArgs e, List<CustomRectangle> list)
         {
-            var temp = list[0];
-            //DrawRectangle(e,temp);
+            int count = 0;
             foreach (var item in list)
             {
-                DrawRectangle(e, item);
+                DrawRectangle(e, item, count);
+                count++;
             }
         }
 
-        private void DrawRectangle(PaintEventArgs e, CustomRectangle rec)
+        private void DrawRectangle(PaintEventArgs e, CustomRectangle rec,int count)
         {
             //初始的格子位置在 , (11,0),(12,0),(12,1),(11,1)
             int x = rec.LeftTopCorner.X;
             int y = 18 - rec.LeftTopCorner.Y;
             var r = new Rectangle(x * w, y * h, w, h);
             e.Graphics.FillRectangle(new SolidBrush(Color.Black), r);
+           
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            e.Graphics.FillEllipse(Brushes.White, r);
+            TextRenderer.DrawText(e.Graphics, $"{count:D2}", this.Font, r, Color.Black,
+                TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
         }
 
         /// <summary>
