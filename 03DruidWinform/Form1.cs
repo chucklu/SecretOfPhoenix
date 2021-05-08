@@ -12,7 +12,7 @@ namespace _03DruidWinform
 {
     public partial class Form1 : Form
     {
-        int multiple = 20;
+        int multiple = 2;
 
         /// <summary>
         /// 最外层的矩形的宽
@@ -38,18 +38,18 @@ namespace _03DruidWinform
 
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            WindowState = FormWindowState.Maximized;
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Console.WriteLine("Form长：{0}，宽：{1}", this.Width, this.Height);
-            //this.Multiple();
+            this.Multiple();
             DrawGrid(width, height, w, h, e);
 
             List<Rectangle> l = new List<Rectangle>();
@@ -108,6 +108,11 @@ namespace _03DruidWinform
         private void DrawLine(Point p1, Point p2, PaintEventArgs e)
         {
             e.Graphics.DrawLine(bluePen, p1, p2);
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            Console.WriteLine("X={0},Y={1}", e.X, e.Y);
         }
     }
 }
