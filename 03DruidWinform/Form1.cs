@@ -17,7 +17,7 @@ namespace _03DruidWinform
         int height = 16;
         int w = 4;
         int h = 4;
-        Pen bluePen = new Pen(Color.Black);
+        Pen bluePen = new Pen(Color.Blue);
 
         public Form1()
         {
