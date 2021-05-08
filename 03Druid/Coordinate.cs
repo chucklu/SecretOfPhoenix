@@ -114,17 +114,17 @@ namespace _03Druid
             }
         }
 
-        public void Action(MoveType moveType)
+        public void Action(ActionType moveType)
         {
             switch (moveType)
             {
-                case MoveType.TurnLeft:
+                case ActionType.TurnLeft:
                     TurnLeft();
                     break;
-                case MoveType.Move:
+                case ActionType.Move:
                     Move();
                     break;
-                case MoveType.TurnRight:
+                case ActionType.TurnRight:
                    TurnRight();
                     break;
                 default:

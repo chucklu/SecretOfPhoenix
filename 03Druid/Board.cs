@@ -3,13 +3,6 @@ using System.Text;
 
 namespace _03Druid
 {
-    public enum MoveType
-    {
-        TurnLeft,
-        Move,
-        TurnRight
-    }
-
     public class Board
     {
         public int LeftHealth { get; set; } = 9;
@@ -40,17 +33,17 @@ namespace _03Druid
             RightHealth--;
         }
 
-        public void Move(MoveType moveType)
+        public void Move(ActionType moveType)
         {
             switch (moveType)
             {
-                case MoveType.TurnLeft:
+                case ActionType.TurnLeft:
                     MoveLeft();
                     break;
-                case MoveType.Move:
+                case ActionType.Move:
                     MoveMiddle();
                     break;
-                case MoveType.TurnRight:
+                case ActionType.TurnRight:
                     MoveRight();
                     break;
                 default:

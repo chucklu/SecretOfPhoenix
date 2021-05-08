@@ -53,18 +53,18 @@ MRMRRRM";
 直行 左转 直行 左转 直行 右转
 直行 右转 直行 左转 直行 直行";
 
-        public static Dictionary<string, MoveType> ChineseDictionary = new Dictionary<string, MoveType>()
+        public static Dictionary<string, ActionType> ChineseDictionary = new Dictionary<string, ActionType>()
         {
-            {"左转", MoveType.TurnLeft},
-            {"直行", MoveType.Move},
-            {"右转", MoveType.TurnRight},
+            {"左转", ActionType.TurnLeft},
+            {"直行", ActionType.Move},
+            {"右转", ActionType.TurnRight},
         };
 
-        public static Dictionary<string, MoveType> EnglishDictionary = new Dictionary<string, MoveType>()
+        public static Dictionary<string, ActionType> EnglishDictionary = new Dictionary<string, ActionType>()
         {
-            {"L", MoveType.TurnLeft},
-            {"M", MoveType.Move},
-            {"R", MoveType.TurnRight},
+            {"L", ActionType.TurnLeft},
+            {"M", ActionType.Move},
+            {"R", ActionType.TurnRight},
         };
     }
 }
