@@ -23,35 +23,11 @@ namespace _03Druid
         }
     }
 
-    /// <summary>
-    /// assume the start cube is
-    /// leftBottomCorner[0,0],
-    /// rightBottomCorner[1,0],
-    /// rightTopCorner[1,1],
-    /// leftTopCorner[0,1]
-    /// </summary>
-    public class Coordinate
+    public class CustomRectangle : ICloneable
     {
-        public DirectionType Direction = DirectionType.North;
-
         public List<Point> PointList;
 
-        public Point LeftBottomCorner = new Point(0, 0);
-        public Point RightBottomCorner = new Point(1, 0);
-        public Point RightTopCorner = new Point(1, 1);
-        public Point LeftTopCorner = new Point(0, 1);
-
-        public int MinX { get; set; } = 0;
-
-        public int MaxX { get; set; } = 1;
-
-        public int MinY { get; set; } = 0;
-
-        public int MaxY { get; set; } = 1;
-
-        public List<List<Point>> AllMoves = new List<List<Point>>();
-
-        public Coordinate()
+        public CustomRectangle()
         {
             PointList = new List<Point>()
             {
@@ -62,12 +38,25 @@ namespace _03Druid
             };
         }
 
+        public int MinX { get; set; } = 0;
+
+        public int MaxX { get; set; } = 1;
+
+        public int MinY { get; set; } = 0;
+
+        public int MaxY { get; set; } = 1;
+
+        public Point LeftBottomCorner = new Point(0, 0);
+        public Point RightBottomCorner = new Point(1, 0);
+        public Point RightTopCorner = new Point(1, 1);
+        public Point LeftTopCorner = new Point(0, 1);
+
         public void MoveWest()
         {
             //move left, x = x-1, y not change
             foreach (var point in PointList)
             {
-                point.X = point.X -1;
+                point.X = point.X - 1;
                 if (point.X < MinX)
                 {
                     MinX = point.X;
@@ -114,6 +103,48 @@ namespace _03Druid
             }
         }
 
+
+        public object Clone()
+        {
+            var temp = new CustomRectangle();
+            temp.LeftTopCorner = new Point(LeftTopCorner.X, LeftTopCorner.Y);
+            temp.RightTopCorner = new Point(RightTopCorner.X, RightTopCorner.Y);
+            temp.LeftBottomCorner = new Point(LeftBottomCorner.X, LeftBottomCorner.Y);
+            temp.RightBottomCorner = new Point(RightBottomCorner.X, RightBottomCorner.Y);
+            return temp;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append($"{LeftBottomCorner},{RightBottomCorner},{RightTopCorner},{LeftTopCorner}");
+            return stringBuilder.ToString();
+        }
+    }
+
+    /// <summary>
+    /// assume the start cube is
+    /// leftBottomCorner[0,0],
+    /// rightBottomCorner[1,0],
+    /// rightTopCorner[1,1],
+    /// leftTopCorner[0,1]
+    /// </summary>
+    public class Coordinate
+    {
+        public DirectionType Direction = DirectionType.North;
+
+        public CustomRectangle CustomRectangle;
+
+        public List<CustomRectangle> AllMoves = new List<CustomRectangle>();
+
+        public Coordinate()
+        {
+            CustomRectangle = new CustomRectangle();
+            var temp = CustomRectangle.Clone() as CustomRectangle;
+            AllMoves.Add(temp);
+        }
+
+       
         public void Action(ActionType moveType)
         {
             switch (moveType)
@@ -130,15 +161,11 @@ namespace _03Druid
                 default:
                     throw new ArgumentException($"{moveType} is not supported");
             }
-
-            AllMoves.Add(PointList);
         }
 
         public override string ToString()
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append($"{LeftBottomCorner},{RightBottomCorner},{RightTopCorner},{LeftTopCorner}");
-            return stringBuilder.ToString();
+            return CustomRectangle.ToString();
         }
 
         public void TurnLeft()
@@ -190,12 +217,35 @@ namespace _03Druid
                  MoveEast();
                     break;
                 case DirectionType.South:
-                   MoveSouth();
+                    MoveSouth();
                     break;
                 case DirectionType.West:
                    MoveWest();
                     break;
             }
+
+            var temp = CustomRectangle.Clone() as CustomRectangle;
+            AllMoves.Add(temp);
+        }
+
+        public void MoveNorth()
+        {
+            CustomRectangle.MoveNorth();
+        }
+
+        public void MoveEast()
+        {
+            CustomRectangle.MoveEast();
+        }
+
+        public void MoveSouth()
+        {
+            CustomRectangle.MoveSouth();
+        }
+
+        public void MoveWest()
+        {
+            CustomRectangle.MoveWest();
         }
     }
 }

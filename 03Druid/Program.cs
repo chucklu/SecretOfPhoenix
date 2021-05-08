@@ -51,9 +51,19 @@ namespace _03Druid
                 //Console.WriteLine($"{count:D2}, {item}, {board}");
 
                 coordinate.Action(moveType);
-                Console.WriteLine($"{count:D2}, {item}, {coordinate}");
+                //Console.WriteLine($"{count:D2}, {item}, {coordinate}");
             }
-            Console.WriteLine($"({coordinate.MinX},{coordinate.MinY}),({coordinate.MaxX},{coordinate.MaxY})");
+
+            var rec = coordinate.CustomRectangle;
+            Console.WriteLine($"({rec.MinX},{rec.MinY}),({rec.MaxX},{rec.MaxY})");
+
+            var allMoves = coordinate.AllMoves;
+            int pointCount = 0;
+            foreach (var item in allMoves)
+            {
+                pointCount++;
+                Console.WriteLine($"{pointCount:D2}, {item}");
+            }
         }
 
         static void RunEnglishSolution()
