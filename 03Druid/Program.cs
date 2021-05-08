@@ -36,17 +36,22 @@ namespace _03Druid
         static void RunChineseSolution()
         {
             Board board = new Board();
+            Coordinate coordinate = new Coordinate();
 
             var str = DruidSolution.ChineseSolution;
             str = str.Replace("\r\n", " ");
             var array = str.Split(' ');
             int count = 0;
+            Console.WriteLine($"{count:D2}, , {coordinate}");
             foreach (var item in array)
             {
                 count++;
                 var moveType = DruidSolution.ChineseDictionary[item];
                 board.Move(moveType);
-                Console.WriteLine($"{count:D2}, {item}, {board}");
+                //Console.WriteLine($"{count:D2}, {item}, {board}");
+
+                coordinate.Move(moveType);
+                Console.WriteLine($"{count:D2}, {item}, {coordinate}");
             }
 
         }
