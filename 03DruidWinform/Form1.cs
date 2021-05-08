@@ -13,10 +13,27 @@ namespace _03DruidWinform
     public partial class Form1 : Form
     {
         int multiple = 20;
+
+        /// <summary>
+        /// 最外层的矩形的宽
+        /// </summary>
         int width = 20;
+
+        /// <summary>
+        /// 最外层的矩形的高度
+        /// </summary>
         int height = 16;
+
+        /// <summary>
+        /// width/w 是垂直方向的格子数量 20/4=5
+        /// </summary>
         int w = 4;
+
+        /// <summary>
+        /// height/h 是水平方向的格子数量 16/4=4
+        /// </summary>
         int h = 4;
+
         Pen bluePen = new Pen(Color.Blue);
 
         public Form1()
