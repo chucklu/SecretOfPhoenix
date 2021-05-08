@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace _03Druid
 {
@@ -59,16 +55,16 @@ MRMRRRM";
 
         public static Dictionary<string, MoveType> ChineseDictionary = new Dictionary<string, MoveType>()
         {
-            {"左转", MoveType.Left},
-            {"直行", MoveType.Middle},
-            {"右转", MoveType.Right},
+            {"左转", MoveType.TurnLeft},
+            {"直行", MoveType.Move},
+            {"右转", MoveType.TurnRight},
         };
 
         public static Dictionary<string, MoveType> EnglishDictionary = new Dictionary<string, MoveType>()
         {
-            {"L", MoveType.Left},
-            {"M", MoveType.Middle},
-            {"R", MoveType.Right},
+            {"L", MoveType.TurnLeft},
+            {"M", MoveType.Move},
+            {"R", MoveType.TurnRight},
         };
     }
 }

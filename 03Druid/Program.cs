@@ -50,7 +50,7 @@ namespace _03Druid
                 board.Move(moveType);
                 //Console.WriteLine($"{count:D2}, {item}, {board}");
 
-                coordinate.Move(moveType);
+                coordinate.Action(moveType);
                 Console.WriteLine($"{count:D2}, {item}, {coordinate}");
             }
             Console.WriteLine($"({coordinate.MinX},{coordinate.MinY}),({coordinate.MaxX},{coordinate.MaxY})");

@@ -23,7 +23,7 @@ namespace _03DruidWinform
                 count++;
                 var moveType = DruidSolution.ChineseDictionary[item];
 
-                coordinate.Move(moveType);
+                coordinate.Action(moveType);
                 //Console.WriteLine($"{count:D2}, {item}, {coordinate}");
             }
             Console.WriteLine($"({coordinate.MinX},{coordinate.MinY}),({coordinate.MaxX},{coordinate.MaxY})");

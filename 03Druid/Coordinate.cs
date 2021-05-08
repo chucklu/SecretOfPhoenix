@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace _03Druid
 {
     public class Point
     {
+
         public Point(int x,int y)
         {
             X = x;
@@ -33,6 +32,8 @@ namespace _03Druid
     /// </summary>
     public class Coordinate
     {
+        public DirectionType Direction = DirectionType.North;
+
         public List<Point> PointList;
 
         public Point LeftBottomCorner = new Point(0, 0);
@@ -61,7 +62,7 @@ namespace _03Druid
             };
         }
 
-        public void MoveLeft()
+        public void MoveWest()
         {
             //move left, x = x-1, y not change
             foreach (var point in PointList)
@@ -74,7 +75,7 @@ namespace _03Druid
             }
         }
 
-        public void MoveMiddle()
+        public void MoveNorth()
         {
             //move up, y = y+1, x not change
             foreach (var point in PointList)
@@ -87,7 +88,7 @@ namespace _03Druid
             }
         }
 
-        public void MoveRight()
+        public void MoveEast()
         {
             //move right, x = x+1, y not change
             foreach (var point in PointList)
@@ -100,18 +101,31 @@ namespace _03Druid
             }
         }
 
-        public void Move(MoveType moveType)
+        public void MoveSouth()
+        {
+            //move up, y = y-1, x not change
+            foreach (var point in PointList)
+            {
+                point.Y = point.Y - 1;
+                if (point.Y < MinY)
+                {
+                    MinY = point.Y;
+                }
+            }
+        }
+
+        public void Action(MoveType moveType)
         {
             switch (moveType)
             {
-                case MoveType.Left:
-                    MoveLeft();
+                case MoveType.TurnLeft:
+                    TurnLeft();
                     break;
-                case MoveType.Middle:
-                    MoveMiddle();
+                case MoveType.Move:
+                    Move();
                     break;
-                case MoveType.Right:
-                    MoveRight();
+                case MoveType.TurnRight:
+                   TurnRight();
                     break;
                 default:
                     throw new ArgumentException($"{moveType} is not supported");
@@ -127,5 +141,61 @@ namespace _03Druid
             return stringBuilder.ToString();
         }
 
+        public void TurnLeft()
+        {
+            switch (Direction)
+            {
+                case DirectionType.North:
+                    Direction = DirectionType.West;
+                    break;
+                case DirectionType.West:
+                    Direction = DirectionType.South;
+                    break;
+                case DirectionType.South:
+                    Direction = DirectionType.East;
+                    break;
+                case DirectionType.East:
+                    Direction = DirectionType.North;
+                    break;
+            }
+        }
+
+        public void TurnRight()
+        {
+            switch (Direction)
+            {
+                case DirectionType.North:
+                    Direction = DirectionType.East;
+                    break;
+                case DirectionType.East:
+                    Direction = DirectionType.South;
+                    break;
+                case DirectionType.South:
+                    Direction = DirectionType.West;
+                    break;
+                case DirectionType.West:
+                    Direction = DirectionType.North;
+                    break;
+            }
+        }
+
+        public void Move()
+        {
+            switch (Direction)
+            {
+                case DirectionType.North:
+                    MoveNorth();
+                    break;
+                case DirectionType.East:
+                 MoveEast();
+                    break;
+                case DirectionType.South:
+                   MoveSouth();
+                    break;
+                case DirectionType.West:
+                   MoveWest();
+                    break;
+            }
+        }
     }
 }

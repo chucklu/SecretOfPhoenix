@@ -5,9 +5,9 @@ namespace _03Druid
 {
     public enum MoveType
     {
-        Left,
-        Middle,
-        Right
+        TurnLeft,
+        Move,
+        TurnRight
     }
 
     public class Board
@@ -44,13 +44,13 @@ namespace _03Druid
         {
             switch (moveType)
             {
-                case MoveType.Left:
+                case MoveType.TurnLeft:
                     MoveLeft();
                     break;
-                case MoveType.Middle:
+                case MoveType.Move:
                     MoveMiddle();
                     break;
-                case MoveType.Right:
+                case MoveType.TurnRight:
                     MoveRight();
                     break;
                 default:
