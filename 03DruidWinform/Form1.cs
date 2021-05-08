@@ -17,12 +17,12 @@ namespace _03DruidWinform
         /// <summary>
         /// 最外层的矩形的宽
         /// </summary>
-        int width = 20;
+        int width = 20;//4*5
 
         /// <summary>
         /// 最外层的矩形的高度
         /// </summary>
-        int height = 16;
+        int height = 264;//4*66=264
 
         /// <summary>
         /// width/w 是垂直方向的格子数量 20/4=5  宽度被5等分
@@ -30,7 +30,7 @@ namespace _03DruidWinform
         int w = 4;
 
         /// <summary>
-        /// height/h 是水平方向的格子数量 16/4=4  高度被4等分
+        /// height/h 是水平方向的格子数量 264/4=66  高度被66等分
         /// </summary>
         int h = 4;
 
@@ -49,7 +49,7 @@ namespace _03DruidWinform
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Console.WriteLine("Form长：{0}，宽：{1}", this.Width, this.Height);
-            this.Multiple();
+            //this.Multiple();
             DrawGrid(width, height, w, h, e);
 
             List<Rectangle> l = new List<Rectangle>();
