@@ -25,12 +25,12 @@ namespace _03DruidWinform
         int height = 16;
 
         /// <summary>
-        /// width/w 是垂直方向的格子数量 20/4=5
+        /// width/w 是垂直方向的格子数量 20/4=5  宽度被5等分
         /// </summary>
         int w = 4;
 
         /// <summary>
-        /// height/h 是水平方向的格子数量 16/4=4
+        /// height/h 是水平方向的格子数量 16/4=4  高度被4等分
         /// </summary>
         int h = 4;
 
