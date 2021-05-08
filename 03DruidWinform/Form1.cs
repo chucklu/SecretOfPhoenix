@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _03DruidWinform
@@ -52,15 +47,31 @@ namespace _03DruidWinform
             this.Multiple();
             DrawGrid(width, height, w, h, e);
 
-            List<Rectangle> l = new List<Rectangle>();
-            Rectangle r;
-            r = new Rectangle(0, w, 2 * w, h); l.Add(r);
-            r = new Rectangle(3 * w, 0, 2 * w, h); l.Add(r);
-            r = new Rectangle(2 * w, 3 * w, 2 * w, h); l.Add(r);
-            foreach (Rectangle r1 in l)
-            {
-                e.Graphics.FillRectangle(new SolidBrush(Color.Black), r1);
-            }
+            var moves = WinformSolution.GetChineseSolution();
+            DrawPath(e, moves);
+        }
+
+        private void DrawPath(PaintEventArgs e, List<List<_03Druid.Point>> list)
+        {
+            DrawStartPoint(e);
+            //List<Rectangle> l = new List<Rectangle>();
+            //Rectangle r;
+            //r = new Rectangle(0, w, 2 * w, h);
+            //l.Add(r);
+            //r = new Rectangle(3 * w, 0, 2 * w, h);
+            //l.Add(r);
+            //r = new Rectangle(2 * w, 3 * w, 2 * w, h);
+            //l.Add(r);
+            //foreach (Rectangle r1 in l)
+            //{
+            //    e.Graphics.FillRectangle(new SolidBrush(Color.Black), r1);
+            //}
+        }
+
+        private void DrawStartPoint(PaintEventArgs e)
+        {
+            var r = new Rectangle(0, w, 2 * w, h);
+            e.Graphics.FillRectangle(new SolidBrush(Color.Black), r);
         }
 
         /// <summary>

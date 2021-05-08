@@ -9,7 +9,7 @@ namespace _03DruidWinform
 {
     class WinformSolution
     {
-        static List<List<Point>> GetChineseSolution()
+        internal static List<List<Point>> GetChineseSolution()
         {
             Coordinate coordinate = new Coordinate();
 
