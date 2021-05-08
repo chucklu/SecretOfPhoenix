@@ -28,12 +28,9 @@ namespace _03DruidWinform
             }
 
             var moves = coordinate.AllMoves;
-            foreach (var move in moves)
+            foreach (var item in moves)
             {
-                //foreach (var point in move)
-                //{
-                //    point.X = point.X + 11;
-                //}
+                item.MoveEast(11);
             }
 
             return moves;

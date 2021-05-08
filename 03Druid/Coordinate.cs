@@ -77,12 +77,12 @@ namespace _03Druid
             }
         }
 
-        public void MoveEast()
+        public void MoveEast(int step=1)
         {
             //move right, x = x+1, y not change
             foreach (var point in PointList)
             {
-                point.X = point.X + 1;
+                point.X = point.X + step;
                 if (point.X > MaxX)
                 {
                     MaxX = point.X;
@@ -111,6 +111,13 @@ namespace _03Druid
             temp.RightTopCorner = new Point(RightTopCorner.X, RightTopCorner.Y);
             temp.LeftBottomCorner = new Point(LeftBottomCorner.X, LeftBottomCorner.Y);
             temp.RightBottomCorner = new Point(RightBottomCorner.X, RightBottomCorner.Y);
+            temp.PointList = new List<Point>()
+            {
+                temp.LeftTopCorner,
+                temp.RightTopCorner,
+                temp.LeftBottomCorner,
+                temp.RightBottomCorner
+            };
             return temp;
         }
 

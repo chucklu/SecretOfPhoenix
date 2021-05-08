@@ -32,7 +32,7 @@ namespace _03DruidWinform
         /// <summary>
         /// height/h 是水平方向的格子数量 72/4=18  高度被18等分
         /// </summary>
-        int h = 1;
+        int h = 4;
 
         Pen bluePen = new Pen(Color.Blue);
 
@@ -60,24 +60,20 @@ namespace _03DruidWinform
 
         private void DrawPath(PaintEventArgs e, List<CustomRectangle> list)
         {
-            DrawStartPoint(e);
-            //List<Rectangle> l = new List<Rectangle>();
-            //Rectangle r;
-            //r = new Rectangle(0, w, 2 * w, h);
-            //l.Add(r);
-            //r = new Rectangle(3 * w, 0, 2 * w, h);
-            //l.Add(r);
-            //r = new Rectangle(2 * w, 3 * w, 2 * w, h);
-            //l.Add(r);
-            //foreach (Rectangle r1 in l)
-            //{
-            //    e.Graphics.FillRectangle(new SolidBrush(Color.Black), r1);
-            //}
+            var temp = list[0];
+            //DrawRectangle(e,temp);
+            foreach (var item in list)
+            {
+                DrawRectangle(e, item);
+            }
         }
 
-        private void DrawStartPoint(PaintEventArgs e)
+        private void DrawRectangle(PaintEventArgs e, CustomRectangle rec)
         {
-            var r = new Rectangle(11 * w, 0, w, h);
+            //初始的格子位置在 , (11,0),(12,0),(12,1),(11,1)
+            int x = rec.LeftTopCorner.X;
+            int y = 18 - rec.LeftTopCorner.Y;
+            var r = new Rectangle(x * w, y * h, w, h);
             e.Graphics.FillRectangle(new SolidBrush(Color.Black), r);
         }
 
