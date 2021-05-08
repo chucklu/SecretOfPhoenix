@@ -11,14 +11,14 @@ namespace SecretOfPhoenix
         public int Id { get; set; }
 
         /// <summary>
-        /// 野猪人数量 身材3/3
+        /// 野猪人数量 身材3/3  恶魔
         /// </summary>
         public int LeftQuilboarCount { get; set; }
 
         public int RightQuilboarCount { get; set; }
 
         /// <summary>
-        /// 兽人数量 身材1/1
+        /// 兽人数量 身材1/1  传教士
         /// </summary>
         public int LeftOrcCount { get; set; }
 
@@ -42,11 +42,11 @@ namespace SecretOfPhoenix
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(LeftQuilboarCount);
             stringBuilder.Append(LeftOrcCount);
+            stringBuilder.Append(LeftQuilboarCount);
             stringBuilder.Append("LR");
-            stringBuilder.Append(RightQuilboarCount);
             stringBuilder.Append(RightOrcCount);
+            stringBuilder.Append(RightQuilboarCount);
             stringBuilder.Append($" , {Id:D2},isValid = {IsValid()}");
             return stringBuilder.ToString();
         }
