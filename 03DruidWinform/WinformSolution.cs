@@ -9,7 +9,7 @@ namespace _03DruidWinform
 {
     class WinformSolution
     {
-        internal static List<List<Point>> GetChineseSolution()
+        internal static List<CustomRectangle> GetChineseSolution()
         {
             Coordinate coordinate = new Coordinate();
 
@@ -26,15 +26,14 @@ namespace _03DruidWinform
                 coordinate.Action(moveType);
                 //Console.WriteLine($"{count:D2}, {item}, {coordinate}");
             }
-            Console.WriteLine($"({coordinate.MinX},{coordinate.MinY}),({coordinate.MaxX},{coordinate.MaxY})");
 
             var moves = coordinate.AllMoves;
             foreach (var move in moves)
             {
-                foreach (var point in move)
-                {
-                    point.X = point.X + 2;
-                }
+                //foreach (var point in move)
+                //{
+                //    point.X = point.X + 11;
+                //}
             }
 
             return moves;

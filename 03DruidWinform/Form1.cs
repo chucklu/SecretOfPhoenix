@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using _03Druid;
+using Point = System.Drawing.Point;
 
 namespace _03DruidWinform
 {
@@ -19,6 +21,9 @@ namespace _03DruidWinform
         /// </summary>
         int height = 72;//4*18=72
 
+        private int widthCount = 15;
+        private int heightCount = 18;
+
         /// <summary>
         /// width/w 是垂直方向的格子数量 60/4=15  宽度被15等分
         /// </summary>
@@ -27,7 +32,7 @@ namespace _03DruidWinform
         /// <summary>
         /// height/h 是水平方向的格子数量 72/4=18  高度被18等分
         /// </summary>
-        int h = 4;
+        int h = 1;
 
         Pen bluePen = new Pen(Color.Blue);
 
@@ -39,6 +44,8 @@ namespace _03DruidWinform
         private void Form1_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
+            width = w * widthCount;
+            height = h * heightCount;
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -51,7 +58,7 @@ namespace _03DruidWinform
             DrawPath(e, moves);
         }
 
-        private void DrawPath(PaintEventArgs e, List<List<_03Druid.Point>> list)
+        private void DrawPath(PaintEventArgs e, List<CustomRectangle> list)
         {
             DrawStartPoint(e);
             //List<Rectangle> l = new List<Rectangle>();
@@ -70,7 +77,7 @@ namespace _03DruidWinform
 
         private void DrawStartPoint(PaintEventArgs e)
         {
-            var r = new Rectangle(0, w, 2 * w, h);
+            var r = new Rectangle(11 * w, 0, w, h);
             e.Graphics.FillRectangle(new SolidBrush(Color.Black), r);
         }
 
