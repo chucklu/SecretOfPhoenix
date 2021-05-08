@@ -14,6 +14,7 @@ namespace _03Druid
             {
                 //Run();
                 RunChineseSolution();
+                //RunEnglishSolution();
             }
             catch(Exception ex)
             {
@@ -44,6 +45,29 @@ namespace _03Druid
             {
                 count++;
                 var moveType = DruidSolution.ChineseDictionary[item];
+                board.Move(moveType);
+                Console.WriteLine($"{count:D2}, {item}, {board}");
+            }
+
+        }
+
+        static void RunEnglishSolution()
+        {
+            Board board = new Board();
+
+            var str = DruidSolution.EnglishSolution;
+            str = str.Replace("\r\n", string.Empty);
+            str = str.Replace("RRR", "L");
+            int count = 0;
+            foreach (var item in str)
+            {
+                count++;
+                var key = item.ToString();
+                if (DruidSolution.EnglishDictionary.ContainsKey(key) == false)
+                {
+                    throw new ArgumentException($"{key} can not be recognized");
+                }
+                var moveType = DruidSolution.EnglishDictionary[item.ToString()];
                 board.Move(moveType);
                 Console.WriteLine($"{count:D2}, {item}, {board}");
             }

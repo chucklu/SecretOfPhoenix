@@ -20,7 +20,7 @@ namespace _03Druid
 
         public void MoveLeft()
         {
-            if (LeftHealth > 0)
+            if (LeftHealth > 1)//should not deduct to zero
             {
                 LeftHealth--;
             }

@@ -63,5 +63,12 @@ MRMRRRM";
             {"直行", MoveType.Middle},
             {"右转", MoveType.Right},
         };
+
+        public static Dictionary<string, MoveType> EnglishDictionary = new Dictionary<string, MoveType>()
+        {
+            {"L", MoveType.Left},
+            {"M", MoveType.Middle},
+            {"R", MoveType.Right},
+        };
     }
 }
