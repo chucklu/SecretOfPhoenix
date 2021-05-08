@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _03Druid
 {
-    class DruidSolution
+    public class DruidSolution
     {
         /// <summary>
         /// https://www.hearthstonetopdecks.com/new-secret-achievement-and-card-back-from-barrens-mysteries-of-the-phoenix-full-solution/

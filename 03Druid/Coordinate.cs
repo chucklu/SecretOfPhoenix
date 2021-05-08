@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _03Druid
 {
-    class Point
+    public class Point
     {
         public Point(int x,int y)
         {
@@ -31,7 +31,7 @@ namespace _03Druid
     /// rightTopCorner[1,1],
     /// leftTopCorner[0,1]
     /// </summary>
-    class Coordinate
+    public class Coordinate
     {
         public List<Point> PointList;
 
@@ -47,6 +47,8 @@ namespace _03Druid
         public int MinY { get; set; } = 0;
 
         public int MaxY { get; set; } = 1;
+
+        public List<List<Point>> AllMoves = new List<List<Point>>();
 
         public Coordinate()
         {
@@ -114,6 +116,8 @@ namespace _03Druid
                 default:
                     throw new ArgumentException($"{moveType} is not supported");
             }
+
+            AllMoves.Add(PointList);
         }
 
         public override string ToString()

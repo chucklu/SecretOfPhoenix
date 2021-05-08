@@ -3,14 +3,14 @@ using System.Text;
 
 namespace _03Druid
 {
-    enum MoveType
+    public enum MoveType
     {
         Left,
         Middle,
         Right
     }
 
-    class Board
+    public class Board
     {
         public int LeftHealth { get; set; } = 9;
 
