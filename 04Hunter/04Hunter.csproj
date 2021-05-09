@@ -35,6 +35,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,6 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="01BalloonMerchant.cs" />
+    <Compile Include="02ArmorVendor.cs" />
+    <Compile Include="03BarrensBlacksmith.cs" />
+    <Compile Include="04DarkshireAlchemist.cs" />
+    <Compile Include="05ShadyDealer.cs" />
+    <Compile Include="06MasterSwordsmith.cs" />
+    <Compile Include="07DrakkariEnchanter.cs" />
+    <Compile Include="Minion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
