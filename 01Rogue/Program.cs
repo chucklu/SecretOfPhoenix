@@ -58,9 +58,12 @@ namespace _01Rogue
                 throw new ArgumentException($"{nameof(array1)}'s Length != {nameof(array1)}'s Length ");
             }
 
-            for (int i = 0; i < array1.Length; i++)
+            for (int i = 0; i < count; i++)
             {
-                array1[i] += array2[i] * count;
+                for (int j = 0; j < array1.Length; j++)
+                {
+                    array1[i] = CustomMath.Add(array1[i], array2[i]);
+                }
             }
         }
     }
