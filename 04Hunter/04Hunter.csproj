@@ -60,6 +60,7 @@
     <Compile Include="13Windspeaker.cs" />
     <Compile Include="14DefenderOfArgus.cs" />
     <Compile Include="Minion.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

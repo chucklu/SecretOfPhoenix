@@ -23,5 +23,15 @@ namespace _04Hunter
         public virtual void Trade()
         {
         }
+
+        public void Action(Player player,CustomAction action)
+        {
+            switch (action.ActionType)
+            {
+                case ActionType.Buy:
+                    Buy();
+                    break;
+            }
+        }
     }
 }
