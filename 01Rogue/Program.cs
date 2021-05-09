@@ -39,19 +39,17 @@ namespace _01Rogue
                 {-2, -2, -1, -3, 0, 3, 1},
             };
 
-            var solutionArray = new int[] {1, 2, 3, 0, 3, 2};
-            //for (int i = 0; i < solutionArray.Length; i++)
-            //{
-            //    var attackChange = attackChangeArray.GetRow(i);
-            //    var count = solutionArray[i];
-            //    AddTwoArray(attackArray, attackChange, count);
-            //}
-
-            var attackChange = attackChangeArray.GetRow(0);
-            AddTwoArray(attackArray, attackChange, 1);
+            var solutionArray = new int[] {1, 2, 3, 0, 0, 3, 2};
+            for (int i = 0; i < solutionArray.Length; i++)
+            {
+                var attackChange = attackChangeArray.GetRow(i);
+                var count = solutionArray[i];
+                Console.WriteLine($"attack enemy {i + 1} minion, {count} times");
+                AddTwoArray(attackArray, attackChange, count);
+            }
 
             string str = string.Join(",", attackArray);
-            Console.WriteLine(str);
+            Console.WriteLine($"The final result is {str}");
         }
 
         static void AddTwoArray(int[] array1, int[] array2,int count)
@@ -67,6 +65,8 @@ namespace _01Rogue
                 {
                     array1[j] = CustomMath.Add(array1[j], array2[j]);
                 }
+                string str = string.Join(",", array1);
+                Console.WriteLine(str);
             }
         }
     }
