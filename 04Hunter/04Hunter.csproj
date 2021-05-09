@@ -52,6 +52,13 @@
     <Compile Include="05ShadyDealer.cs" />
     <Compile Include="06MasterSwordsmith.cs" />
     <Compile Include="07DrakkariEnchanter.cs" />
+    <Compile Include="08DalaranMage.cs" />
+    <Compile Include="09BloodsailCorsair.cs" />
+    <Compile Include="10VioletApprentice.cs" />
+    <Compile Include="11SilverHandKnight.cs" />
+    <Compile Include="12DarnassusAspirant.cs" />
+    <Compile Include="13Windspeaker.cs" />
+    <Compile Include="14DefenderOfArgus.cs" />
     <Compile Include="Minion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
