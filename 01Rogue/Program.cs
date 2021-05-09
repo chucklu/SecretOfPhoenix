@@ -40,12 +40,15 @@ namespace _01Rogue
             };
 
             var solutionArray = new int[] {1, 2, 3, 0, 3, 2};
-            for (int i = 0; i < solutionArray.Length; i++)
-            {
-                var attackChange = attackChangeArray.GetRow(i);
-                var count = solutionArray[i];
-                AddTwoArray(attackArray, attackChange, count);
-            }
+            //for (int i = 0; i < solutionArray.Length; i++)
+            //{
+            //    var attackChange = attackChangeArray.GetRow(i);
+            //    var count = solutionArray[i];
+            //    AddTwoArray(attackArray, attackChange, count);
+            //}
+
+            var attackChange = attackChangeArray.GetRow(0);
+            AddTwoArray(attackArray, attackChange, 1);
 
             string str = string.Join(",", attackArray);
             Console.WriteLine(str);
@@ -62,7 +65,7 @@ namespace _01Rogue
             {
                 for (int j = 0; j < array1.Length; j++)
                 {
-                    array1[i] = CustomMath.Add(array1[i], array2[i]);
+                    array1[j] = CustomMath.Add(array1[j], array2[j]);
                 }
             }
         }
