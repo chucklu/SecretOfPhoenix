@@ -28,7 +28,11 @@ namespace _04HunterTest
 
         static void Run()
         {
-            PrintCards("BAR_763a7");
+            for (int i = 1; i <= 7; i++)
+            {
+                var cardId = $"BAR_763a{i}";
+                PrintCards(cardId);
+            }
         }
 
         static void PrintCards(string id)
@@ -42,6 +46,7 @@ namespace _04HunterTest
                var str = $"//{card.Id} {name}{text}";
                Console.WriteLine(str);
            }
+           Console.WriteLine();
         }
     }
 }
