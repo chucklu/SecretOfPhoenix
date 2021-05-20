@@ -66,36 +66,66 @@ namespace _01RogueTest
         [Test]
         public void Test20210520001()
         {
-            for (int i = 1; i <= 7; i++)
+            var count = 7;
+            for (int i = 0; i < count; i++)
             {
                 var variable = $"i{i}";
                 Console.WriteLine($"for (int {variable} = 0; {variable} <= 4; {variable}++)");
                 Console.WriteLine("{");
             }
 
-            for (int i = 1; i <= 7; i++)
+            for (int i = 1; i <= count; i++)
             {
                 Console.WriteLine("}");
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                Console.Write($"i{i}*list[{i}]+");
+            }
+            Console.WriteLine();
+            for (int i = 0; i < count; i++)
+            {
+                Console.Write($"{{i{i}}}, ");
             }
         }
 
         [Test]
         public void Test20210520002()
         {
-            for (int i1 = 0; i1 <= 4; i1++)
+            var V = Vector<double>.Build;
+            var list = new List<Vector<double>>()
             {
-                for (int i2 = 0; i2 <= 4; i2++)
+                V.DenseOfArray(new double[] {1, 2, 1, -2, 2, 0, -3}), //attack the first enemy minion
+                V.DenseOfArray(new double[] {-2, 1, -2, -2, 3, -2, -2}), //attack the second enemy minion
+                V.DenseOfArray(new double[] {0, -2, 1, 1, 2, -2, -2}),
+                V.DenseOfArray(new double[] {0, 0, 1, 1, -2, 3, -3}),
+                V.DenseOfArray(new double[] {-3, 0, -1, 2, 1, -2, 3}),
+                V.DenseOfArray(new double[] {2, 3, 2, -3, 0, 1, 1}),
+                V.DenseOfArray(new double[] {-2, -2, -1, -3, 0, 3, 1}),
+            };
+            for (int i0 = 0; i0 <= 4; i0++)
+            {
+                for (int i1 = 0; i1 <= 4; i1++)
                 {
-                    for (int i3 = 0; i3 <= 4; i3++)
+                    for (int i2 = 0; i2 <= 4; i2++)
                     {
-                        for (int i4 = 0; i4 <= 4; i4++)
+                        for (int i3 = 0; i3 <= 4; i3++)
                         {
-                            for (int i5 = 0; i5 <= 4; i5++)
+                            for (int i4 = 0; i4 <= 4; i4++)
                             {
-                                for (int i6 = 0; i6 <= 4; i6++)
+                                for (int i5 = 0; i5 <= 4; i5++)
                                 {
-                                    for (int i7 = 0; i7 <= 4; i7++)
+                                    for (int i6 = 0; i6 <= 4; i6++)
                                     {
+                                        var result = i0 * list[0] + i1 * list[1] + i2 * list[2] + i3 * list[3] +
+                                                     i4 * list[4] + i5 * list[5] + i6 * list[6];
+                                        Console.WriteLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6} => {result}");
+                                        bool isValid = IsValid(result);
+                                        if (isValid)
+                                        {
+                                            Console.WriteLine($"valid {i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6} => {result}");
+                                        }
                                     }
                                 }
                             }
