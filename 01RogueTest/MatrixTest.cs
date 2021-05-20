@@ -70,7 +70,7 @@ namespace _01RogueTest
             for (int i = 0; i < count; i++)
             {
                 var variable = $"i{i}";
-                Console.WriteLine($"for (int {variable} = 0; {variable} <= 4; {variable}++)");
+                Console.WriteLine($"for (int {variable} = 0; {variable} <= count; {variable}++)");
                 Console.WriteLine("{");
             }
 
@@ -94,19 +94,20 @@ namespace _01RogueTest
         public void Test20210520002()
         {
             var V = Vector<double>.Build;
-            for (int i0 = 0; i0 <= 4; i0++)
+            int count = 10;
+            for (int i0 = 0; i0 <= count; i0++)
             {
-                for (int i1 = 0; i1 <= 4; i1++)
+                for (int i1 = 0; i1 <= count; i1++)
                 {
-                    for (int i2 = 0; i2 <= 4; i2++)
+                    for (int i2 = 0; i2 <= count; i2++)
                     {
-                        for (int i3 = 0; i3 <= 4; i3++)
+                        for (int i3 = 0; i3 <= count; i3++)
                         {
-                            for (int i4 = 0; i4 <= 4; i4++)
+                            for (int i4 = 0; i4 <= count; i4++)
                             {
-                                for (int i5 = 0; i5 <= 4; i5++)
+                                for (int i5 = 0; i5 <= count; i5++)
                                 {
-                                    for (int i6 = 0; i6 <= 4; i6++)
+                                    for (int i6 = 0; i6 <= count; i6++)
                                     {
                                         var solutionArray = new double[] { i0, i1, i2, i3, i4, i5, i6 }; //1*7
                                         var result = Calculate(solutionArray);
