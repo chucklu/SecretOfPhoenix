@@ -94,16 +94,6 @@ namespace _01RogueTest
         public void Test20210520002()
         {
             var V = Vector<double>.Build;
-            var list = new List<Vector<double>>()
-            {
-                V.DenseOfArray(new double[] {1, 2, 1, -2, 2, 0, -3}), //attack the first enemy minion
-                V.DenseOfArray(new double[] {-2, 1, -2, -2, 3, -2, -2}), //attack the second enemy minion
-                V.DenseOfArray(new double[] {0, -2, 1, 1, 2, -2, -2}),
-                V.DenseOfArray(new double[] {0, 0, 1, 1, -2, 3, -3}),
-                V.DenseOfArray(new double[] {-3, 0, -1, 2, 1, -2, 3}),
-                V.DenseOfArray(new double[] {2, 3, 2, -3, 0, 1, 1}),
-                V.DenseOfArray(new double[] {-2, -2, -1, -3, 0, 3, 1}),
-            };
             for (int i0 = 0; i0 <= 4; i0++)
             {
                 for (int i1 = 0; i1 <= 4; i1++)
@@ -118,13 +108,12 @@ namespace _01RogueTest
                                 {
                                     for (int i6 = 0; i6 <= 4; i6++)
                                     {
-                                        var result = i0 * list[0] + i1 * list[1] + i2 * list[2] + i3 * list[3] +
-                                                     i4 * list[4] + i5 * list[5] + i6 * list[6];
-                                        Console.WriteLine($"{i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6} => {result}");
+                                        var solutionArray = new double[] { i0, i1, i2, i3, i4, i5, i6 }; //1*7
+                                        var result = Calculate(solutionArray);
                                         bool isValid = IsValid(result);
                                         if (isValid)
                                         {
-                                            Console.WriteLine($"valid {i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6} => {result}");
+                                            Console.WriteLine($"valid solution: {i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6} => {result}");
                                         }
                                     }
                                 }
@@ -165,6 +154,33 @@ namespace _01RogueTest
             }
 
             return flag;
+        }
+
+        private Vector<double> Calculate(double[] solutionArray)
+        {
+            var V = Vector<double>.Build;
+
+            var attackArray = new double[] { 5, 1, 0, 2, 0, 5, 2 };
+            var attackVector = V.DenseOfArray(attackArray);
+
+            var list = new List<Vector<double>>()
+            {
+                V.DenseOfArray(new double[] {1, 2, 1, -2, 2, 0, -3}), //attack the first enemy minion
+                V.DenseOfArray(new double[] {-2, 1, -2, -2, 3, -2, -2}), //attack the second enemy minion
+                V.DenseOfArray(new double[] {0, -2, 1, 1, 2, -2, -2}),
+                V.DenseOfArray(new double[] {0, 0, 1, 1, -2, 3, -3}),
+                V.DenseOfArray(new double[] {-3, 0, -1, 2, 1, -2, 3}),
+                V.DenseOfArray(new double[] {2, 3, 2, -3, 0, 1, 1}),
+                V.DenseOfArray(new double[] {-2, -2, -1, -3, 0, 3, 1}),
+            };
+
+            for (int i = 0; i < solutionArray.Length; i++)
+            {
+                var temp = list[i].Multiply(solutionArray[i]);
+                attackVector = attackVector.Add(temp);
+            }
+
+            return attackVector;
         }
     }
 }
