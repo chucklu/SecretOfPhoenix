@@ -93,6 +93,7 @@ namespace _01RogueTest
         [Test]
         public void Test20210520002()
         {
+            Dictionary<double[],double> dic = new Dictionary<double[], double>();
             var V = Vector<double>.Build;
             int count = 10;
             for (int i0 = 0; i0 <= count; i0++)
@@ -114,7 +115,8 @@ namespace _01RogueTest
                                         bool isValid = IsValid(result);
                                         if (isValid)
                                         {
-                                            Console.WriteLine($"valid solution: {i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6} => {result}");
+                                            dic.Add(solutionArray, solutionArray.Sum());
+                                            //Console.WriteLine($"valid solution: {i0}, {i1}, {i2}, {i3}, {i4}, {i5}, {i6} => {result}");
                                         }
                                     }
                                 }
@@ -122,6 +124,14 @@ namespace _01RogueTest
                         }
                     }
                 }
+            }
+
+            var orderedDic= dic.OrderBy(x => x.Value);
+            int i = 0;
+            foreach (var item in orderedDic)
+            {
+                i++;
+                Console.WriteLine($"valid solution{i}, need attack {item.Value} times: {string.Join(", ", item.Key)}");
             }
         }
 
